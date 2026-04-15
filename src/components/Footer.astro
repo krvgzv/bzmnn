@@ -1,0 +1,46 @@
+---
+const footerLinks = [
+  { href: "/", label: "Главная" },
+  { href: "/seo/", label: "Основы SEO" },
+  { href: "/seo/analitika/", label: "Аналитика" },
+  { href: "/seo/vnutrennyaya-optimizaciya/", label: "Внутренняя оптимизация" },
+  { href: "/seo/vneshnyaya-optimizaciya/", label: "Внешняя оптимизация" },
+];
+---
+
+<footer class="footer">
+  <nav aria-label="Навигация в подвале">
+    <ul class="footer-nav">
+      {footerLinks.map((link) => (
+        <li>
+          <a href={link.href}>{link.label}</a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</footer>
+
+<style>
+  .footer {
+    padding: 20px;
+    background: #f7f7f7;
+    color: white;
+  }
+
+  .footer-nav {
+    display: flex;
+    gap: 16px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-nav a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+  }
+
+  .footer-nav a:hover {
+    text-decoration: underline;
+  }
+</style>

@@ -1,0 +1,178 @@
+---
+const { title = 'Мой сайт' } = Astro.props;
+import Footer from "../components/Footer.astro";
+---
+
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/">Главная</a>
+        <a href="/seo/">Основы SEO</a>
+        <a href="/seo/analitika/">Аналитика</a>
+        <a href="/seo/vnutrennyaya-optimizaciya/">Внутренняя оптимизация</a>
+        <a href="/seo/vneshnyaya-optimizaciya/">Внешняя оптимизация</a>
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer>
+  <div class="footer-container">
+    <div class="footer-block">
+      <nav class="footer-nav" aria-label="Навигация в подвале">
+      <a href="/seo/">Основы SEO</a>
+      <a href="/seo/analitika/">Аналитика</a>
+      </nav>
+    </div>
+
+    <div class="footer-block">
+      <a href="/seo/vnutrennyaya-optimizaciya/">Внутренняя оптимизация</a>
+      <nav class="footer-nav" aria-label="Навигация в подвале">
+        <a href="/seo/vnutrennyaya-optimizaciya/tehnicheskiy-audit/">Технический аудит</a>
+        <a href="/seo/vnutrennyaya-optimizaciya/ssylki/">Ссылки</a>
+        <a href="/seo/vnutrennyaya-optimizaciya/struktura-sayta/">Структура сайта</a>
+        <a href="/seo/vnutrennyaya-optimizaciya/kody-otveta/">Коды ответа</a>
+        <a href="/seo/vnutrennyaya-optimizaciya/indeksaciya/">Индексация</a>
+        <a href="/seo/vnutrennyaya-optimizaciya/karta-sayta/">Карта сайта</a>
+        <a href="/seo/vnutrennyaya-optimizaciya/robots-txt/">Файл robots.txt</a>
+        <a href="/seo/vnutrennyaya-optimizaciya/meta-tegi/">Мета-теги</a>
+        <a href="/seo/vnutrennyaya-optimizaciya/mikrorazmetka/">Микроразметка</a>
+        <a href="/seo/vnutrennyaya-optimizaciya/protokoly-bezopasnosti/">Протоколы безопасности</a>
+        <a href="/seo/vnutrennyaya-optimizaciya/skorost-zagruzki-stranic/">Скорость загрузки страниц</a>
+        <a href="/seo/vnutrennyaya-optimizaciya/udobstvo-interfeysa/">Удобство интерфейса</a>
+        <a href="/seo/vnutrennyaya-optimizaciya/kontent/">Контент</a>
+      </nav>
+    </div>
+
+    <div class="footer-block">
+      <a href="/seo/vneshnyaya-optimizaciya/">Внешняя оптимизация</a>
+      <nav class="footer-nav" aria-label="Навигация в подвале">
+        <a href="/seo/vneshnyaya-optimizaciya/ssylochnyy-profil/">Ссылочный профиль</a>
+        <a href="/seo/vneshnyaya-optimizaciya/linkbilding/">Линкбилдинг</a>
+        <a href="/seo/vneshnyaya-optimizaciya/nakrutka-povedencheskih-faktorov/">Накрутка поведенческих факторов</a>
+        <a href="/seo/vneshnyaya-optimizaciya/upravlenie-reputaciey-v-internete/">Управление репутацией в интернете</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>
+
+<style>
+  html,
+  body {
+    min-height: 100%;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f7f7f7;
+    color: #222;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  header {
+    background: white;
+    border-bottom: 1px solid #ddd;
+  }
+
+  nav {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 16px;
+    display: flex;
+    gap: 16px;
+  }
+
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px 16px;
+    flex: 1;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  footer {
+    background: white;
+    border-top: 1px solid #ddd;
+    padding: 24px 16px;
+  }
+
+  .footer-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .footer-block h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+  }
+
+  .footer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  @media (max-width: 768px) {
+    .footer-container {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: #000000;
+  }
+
+  main :global(img) {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+main :global(pre) {
+  padding: 16px;
+  margin: 24px 0;
+  overflow-x: auto;
+  border-radius: 10px;
+  background: #f3f4f6;
+  color: #111827;
+  font-size: 20px !important;
+  line-height: 1.7;
+}
+
+main :global(pre code) {
+  font-family:
+    "Fira Code", "JetBrains Mono", Consolas, Monaco, "Courier New",
+    monospace;
+  font-size: inherit !important;
+  color: inherit;
+}
+
+main :global(:not(pre) > code) {
+  background: #e5e7eb;
+  color: #111827;
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-family:
+    "Fira Code", "JetBrains Mono", Consolas, Monaco, "Courier New",
+    monospace;
+  font-size: 18px !important;
+}
+</style>

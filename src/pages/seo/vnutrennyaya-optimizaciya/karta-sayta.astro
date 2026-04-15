@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Карта сайта">
+  <h1>Карта сайта</h1>
+<p>Основным инструментом для информирования поисковых роботов о структуре сайта является карта сайта, в качестве которой используется файл&nbsp;<code>sitemap.xml</code>. В нём должны быть перечислены все существующие адреса страниц открытых для индексации поисковыми системами. Обычно этот файл располагают в корневой папке сайта, пример: <a href="/sitemap.xml">https://bzmnn.site/sitemap.xml</a></p>
+<p>Отсутствие карты сайта воспринимается поисковыми системами как негативный фактор при ранжировании. В таком случае её нужно создать, тщательно изучив структуру сайта.</p>
+<p>При создании карты необходимо помнить об ограничениях: не более 50000 ссылок, а максимальный размер не должен превышать 50 Мб. При превышении ограничений необходимо разделить карту на части и связать их через "<a href="https://www.sitemaps.org/ru/protocol.html#index" title="">карту индекса</a>". </p>
+<h2>Формат</h2>
+<p>Информация о каждой странице в карте заключается между тегами <code>&lt;url&gt;</code>. Для структуризации информации, внутри тега <code>&lt;url&gt;</code> используют дочерние XML-теги:</p>
+<ul>
+<li>loc (адрес страницы);</li>
+<li>lastmod (дата последнего обновления);</li>
+<li>changefreq (частота обновлений);</li>
+<li>priority (приоритетность страницы).</li>
+</ul>
+<p>Формат дат может быть только один: ГГГГ-ММ-ДД.  Приоритетность может быть задана числом в промежутке от 0.0 до 1.0. Частота обновлений может иметь значения:</p>
+<ul>
+<li>always (постоянно);</li>
+<li>hourly (ежечасно);</li>
+<li>daily (ежедневно);</li>
+<li>weekly (еженедельно);</li>
+<li>monthly (ежемесячно);</li>
+<li>yearly (ежегодно);</li>
+<li>never (никогда).</li>
+</ul>
+<p>Для проверки корректности заполнения карты существуют инструменты внутри сервисов <a href="https://webmaster.yandex.ru/tools/sitemap/" title="">Яндекс Вебмастер</a> и <a href="https://search.google.com/search-console/sitemaps" title="">Google Search Console</a>.</p>
+<p>Подробнее о карте можно почитать в справке:<br><a href="https://www.sitemaps.org/ru/protocol.html" title="">Sitemaps.org</a><br><a href="https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview?hl=ru">Google</a><br><a href="https://yandex.ru/support/webmaster/ru/indexing-options/sitemap.html?lang=ru&amp;embed-theme=light">Яндекс</a></p>
+</BaseLayout>
