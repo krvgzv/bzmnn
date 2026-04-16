@@ -1,0 +1,209 @@
+---
+const links = [
+  { href: "/", label: "Главная" },
+  { href: "/seo/", label: "Основы SEO" },
+  { href: "/seo/analitika/", label: "Аналитика" },
+  {
+    href: "/seo/vnutrennyaya-optimizaciya/",
+    label: "Внутренняя оптимизация",
+  },
+  {
+    href: "/seo/vneshnyaya-optimizaciya/",
+    label: "Внешняя оптимизация",
+  },
+];
+---
+
+<header class="header">
+  <div class="header__inner">
+    <button
+      class="header__burger"
+      type="button"
+      aria-label="Открыть меню"
+      aria-expanded="false"
+      aria-controls="main-nav"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav id="main-nav" class="header__nav" aria-label="Основная навигация">
+      <div class="header__links">
+        {links.map((link) => (
+          <a href={link.href} class="header__link">
+            {link.label}
+          </a>
+        ))}
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const initHeader = () => {
+    const header = document.querySelector<HTMLElement>(".header");
+
+    if (!header || header.dataset.ready === "true") {
+      return;
+    }
+
+    header.dataset.ready = "true";
+
+    const burger = header.querySelector<HTMLButtonElement>(".header__burger");
+    const nav = header.querySelector<HTMLElement>(".header__nav");
+
+    if (!burger || !nav) {
+      return;
+    }
+
+    const closeMenu = () => {
+      burger.setAttribute("aria-expanded", "false");
+      nav.classList.remove("is-open");
+    };
+
+    burger.addEventListener("click", () => {
+      const isOpen = burger.getAttribute("aria-expanded") === "true";
+
+      burger.setAttribute("aria-expanded", String(!isOpen));
+      nav.classList.toggle("is-open", !isOpen);
+    });
+
+    nav.querySelectorAll<HTMLAnchorElement>("a").forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeMenu();
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 768) {
+        closeMenu();
+      }
+    });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initHeader, { once: true });
+  } else {
+    initHeader();
+  }
+
+  document.addEventListener("astro:page-load", initHeader);
+</script>
+
+<style>
+  .header {
+    background: #ffffff;
+    border-bottom: 1px solid #dddddd;
+  }
+
+  .header__inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 16px;
+  }
+
+  .header__burger {
+    display: none;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    margin: 0 auto;
+  }
+
+  .header__burger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #222222;
+    transition:
+      transform 0.2s ease,
+      opacity 0.2s ease;
+  }
+
+  .header__burger[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .header__burger[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .header__burger[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .header__nav {
+    display: block;
+  }
+
+  .header__links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px 28px;
+  }
+
+  .header__link {
+    display: inline-block;
+    color: #222222;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 1.4;
+    font-weight: 600;
+    padding: 6px 0;
+    transition: color 0.2s ease;
+  }
+
+  .header__link:hover,
+  .header__link:focus-visible {
+    color: #1d4ed8;
+    outline: none;
+  }
+
+  @media (max-width: 768px) {
+    .header__inner {
+      padding: 12px 16px;
+    }
+
+    .header__burger {
+      display: flex;
+    }
+
+    .header__nav {
+      display: none;
+      width: 100%;
+      padding-top: 12px;
+    }
+
+    .header__nav.is-open {
+      display: block;
+    }
+
+    .header__links {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      border-top: 1px solid #eeeeee;
+    }
+
+    .header__link {
+      width: 100%;
+      text-align: center;
+      padding: 14px 16px;
+      border-bottom: 1px solid #f1f1f1;
+    }
+  }
+</style>
