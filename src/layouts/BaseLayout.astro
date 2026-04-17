@@ -1,6 +1,12 @@
 ---
 const { title = "Мой сайт" } = Astro.props;
 import Header from "../components/Header.astro";
+const normalizedPath =
+  Astro.url.pathname === "/index.html"
+    ? "/"
+    : Astro.url.pathname.replace(/\/index\.html$/, "/");
+
+const canonical = new URL(normalizedPath, Astro.site);
 ---
 
 <!doctype html>
@@ -9,7 +15,20 @@ import Header from "../components/Header.astro";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Безымянный сайт</title>
-  
+    <link rel="canonical" href={canonical.href} />
+    <!-- /Redirects counter -->
+<script is:inline>
+  const { pathname, search, hash } = window.location;
+
+  if (pathname === "/index.html") {
+    window.location.replace("/" + search + hash);
+  } else if (pathname.endsWith("/index.html")) {
+    window.location.replace(
+      pathname.replace(/\/index\.html$/, "/") + search + hash,
+    );
+  }
+</script>
+<!-- /Redirects counter -->
      <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
     (function(m,e,t,r,i,k,a){
@@ -23,7 +42,6 @@ import Header from "../components/Header.astro";
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/103607863" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
-
   </head>
   <body>
     <Header />
