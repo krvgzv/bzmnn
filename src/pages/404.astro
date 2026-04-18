@@ -1,0 +1,17 @@
+---
+const title = '404 — Страница не найдена';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout 
+title="Страница не найдена"
+  description="Такой страницы не существует"
+>
+<Fragment slot="head">
+    <meta name="robots" content="noindex, follow" />
+  </Fragment>
+  <main>
+    <h1>404</h1>
+    <p>Страница не найдена.</p>
+    <a href="/">Вернуться на главную</a>
+  </main>
+</BaseLayout>

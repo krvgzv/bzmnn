@@ -1,5 +1,10 @@
 ---
-const { title = "Мой сайт" } = Astro.props;
+const {
+  title = 'Безымянный сайт',
+  description = 'Описание сайта',
+  noindex = false,
+} = Astro.props;
+
 import Header from "../components/Header.astro";
 const normalizedPath =
   Astro.url.pathname === "/index.html"
@@ -8,6 +13,15 @@ const normalizedPath =
 
 const canonical = new URL(normalizedPath, Astro.site);
 const GA_ID = 'G-KM4HXM8FLP';
+interface Props {
+  title?: string;
+  description?: string;
+  noindex?: boolean;
+}
+
+const siteUrl = 'https://bzmnn.site';
+const pageTitle = title;
+const pageDescription = description;
 ---
 
 <!doctype html>
@@ -16,7 +30,8 @@ const GA_ID = 'G-KM4HXM8FLP';
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="google-site-verification" content="K5Fop5vjUt96Ci4EkNVX3N_qpk4brVoFaj5w6hlJSek" />
-    <title>Безымянный сайт</title>
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription}/>
     <link rel="canonical" href={canonical.href} />
     <!-- /Redirects counter -->
 <script is:inline>
@@ -56,6 +71,7 @@ const GA_ID = 'G-KM4HXM8FLP';
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/103607863" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
+  <slot name="head" />
   </head>
   <body>
     <Header />

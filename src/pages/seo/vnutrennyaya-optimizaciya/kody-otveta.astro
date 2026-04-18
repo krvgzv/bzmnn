@@ -2,7 +2,10 @@
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="Коды ответа">
+<BaseLayout 
+title="Коды ответа сервера"
+description="Анализ доступности страниц сайта для поисковых систем"
+>
   <h1>Коды ответа</h1>
 <p>Кодов ответа существует множество, но можно выделить четыре основных типа:</p>
 <ul>
@@ -15,6 +18,6 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 <p>Необходимо проверить на каких страницах были найдены ссылки, ведущие на адреса с кодом ответа 404. Такие ссылки называют "<strong>битыми</strong>" и от них необходимо избавляться, удалив или скорректировав.</p>
 <p>Код 503 чаще всего говорит о наличии технических проблем или высокой нагрузке на сайт.</p>
 <h2>Переадресация (редирект)</h2>
-<p>Коды 301 и 302 означают <strong>переадресацию или редирект</strong>. Переадресация это полезный инструмент, который можно использовать, но необходимо соблюдать правила:<br><a href="https://developers.google.com/search/docs/crawling-indexing/301-redirects?hl=ru">Google</a><br><a href="https://yandex.ru/support/webmaster/ru/robot-workings/managing-redirects.html?lang=uk">Яндекс</a><br>Все ссылки с переадресацией необходимо проверить и убедиться что они используются по назначению.</p>
-<p>Подробнее о кодах ответа можно прочитать в справке:<br><a href="https://developers.google.com/search/docs/crawling-indexing/http-network-errors?hl=ru">Google</a><br><a href="https://yandex.ru/support/webmaster/ru/error-dictionary/http-codes" title="">Яндекс</a></p>
+<p>Коды 301 и 302 означают <strong>переадресацию или редирект</strong>. Переадресация это полезный инструмент, который можно использовать, но необходимо соблюдать правила:<br><a href="https://developers.google.com/search/docs/crawling-indexing/301-redirects?hl=ru" target="_blank" rel="nofollow">Google</a><br><a href="https://yandex.ru/support/webmaster/ru/robot-workings/managing-redirects.html?lang=uk" target="_blank" rel="nofollow">Яндекс</a><br>Все ссылки с переадресацией необходимо проверить и убедиться что они используются по назначению.</p>
+<p>Подробнее о кодах ответа можно прочитать в справке:<br><a href="https://developers.google.com/search/docs/crawling-indexing/http-network-errors?hl=ru" target="_blank" rel="nofollow">Google</a><br><a href="https://yandex.ru/support/webmaster/ru/error-dictionary/http-codes" target="_blank" rel="nofollow">Яндекс</a></p>
 </BaseLayout>
