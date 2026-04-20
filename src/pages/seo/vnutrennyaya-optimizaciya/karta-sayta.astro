@@ -1,12 +1,24 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const title = "Карта сайта";
+const description = "Sitemap xml — карта сайта в SEO";
+const pageHeading = "Карта сайта";
+
+const breadcrumbs = [
+  { href: "/", label: "Главная" },
+  { href: "/seo/", label: "Основы SEO" },
+  { href: "/seo/vnutrennyaya-optimizaciya/", label: "Внутренняя оптимизация" },
+  { label: pageHeading },
+];
 ---
 
 <BaseLayout 
-title="Карта сайта"
-description="Sitemap xml — карта сайта в SEO"
+  title={title}
+  description={description}
+  pageHeading={pageHeading}
+  breadcrumbs={breadcrumbs}
 >
-  <h1>Карта сайта</h1>
 <p>Основным инструментом для информирования поисковых роботов о структуре сайта является карта сайта, в качестве которой используется файл&nbsp;<code>sitemap.xml</code>. В нём должны быть перечислены все существующие адреса страниц открытых для индексации поисковыми системами. Обычно этот файл располагают в корневой папке сайта, пример: <a href="/sitemap.xml">https://bzmnn.site/sitemap.xml</a></p>
 <p>Отсутствие карты сайта воспринимается поисковыми системами как негативный фактор при ранжировании. В таком случае её нужно создать, тщательно изучив структуру сайта.</p>
 <p>При создании карты необходимо помнить об ограничениях: не более 50000 ссылок, а максимальный размер не должен превышать 50 Мб. При превышении ограничений необходимо разделить карту на части и связать их через "<a href="https://www.sitemaps.org/ru/protocol.html#index" target="_blank" rel="nofollow">карту индекса</a>". </p>

@@ -1,12 +1,24 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const title = "Коды ответа сервера";
+const description = "Анализ доступности страниц сайта для поисковых систем";
+const pageHeading = "Коды ответа";
+
+const breadcrumbs = [
+  { href: "/", label: "Главная" },
+  { href: "/seo/", label: "Основы SEO" },
+  { href: "/seo/vnutrennyaya-optimizaciya/", label: "Внутренняя оптимизация" },
+  { label: pageHeading },
+];
 ---
 
 <BaseLayout 
-title="Коды ответа сервера"
-description="Анализ доступности страниц сайта для поисковых систем"
+  title={title}
+  description={description}
+  pageHeading={pageHeading}
+  breadcrumbs={breadcrumbs}
 >
-  <h1>Коды ответа</h1>
 <p>Кодов ответа существует множество, но можно выделить четыре основных типа:</p>
 <ul>
 <li>2xx (обычно 200) — успешный ответ;</li>

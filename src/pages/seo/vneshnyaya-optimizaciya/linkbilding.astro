@@ -1,12 +1,24 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const title = "Линкбилдинг: получение ссылок на сайт";
+const description = "Ссылочное продвижение в SEO — метод внешнего продвижения сайтов";
+const pageHeading = "Линкбилдинг";
+
+const breadcrumbs = [
+  { href: "/", label: "Главная" },
+  { href: "/seo/", label: "Основы SEO" },
+  { href: "/seo/vneshnyaya-optimizaciya/", label: "Внешняя оптимизация" },
+  { label: pageHeading },
+];
 ---
 
 <BaseLayout 
-title="Линкбилдинг: получение ссылок на сайт"
-  description="Ссылочное продвижение в SEO — метод внешнего продвижения сайтов"
+  title={title}
+  description={description}
+  pageHeading={pageHeading}
+  breadcrumbs={breadcrumbs}
 >
-  <h1>Линкбилдинг</h1>
 <p>Линкбилдинг (link building) – это процесс наращивания ссылочной массы на сайт путем получения ссылок с других ресурсов. Подробнее на <a href="https://ru.wikipedia.org/wiki/%D0%9B%D0%B8%D0%BD%D0%BA%D0%B1%D0%B8%D0%BB%D0%B4%D0%B8%D0%BD%D0%B3" target="_blank" rel="nofollow">Вики</a>.</p>
 <h2>Виды линкбилдинга</h2>
 <ul>

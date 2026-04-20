@@ -1,11 +1,23 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const title = "Накрутка ПФ в SEO";
+const description = "Накрутка поведенческих факторов для SEO — метод внешнего продвижения сайта";
+const pageHeading = "Накрутка поведенческих факторов";
+
+const breadcrumbs = [
+  { href: "/", label: "Главная" },
+  { href: "/seo/", label: "Основы SEO" },
+  { href: "/seo/vneshnyaya-optimizaciya/", label: "Внешняя оптимизация" },
+  { label: pageHeading },
+];
 ---
 
 <BaseLayout 
-title="Накрутка ПФ в SEO"
-  description="Накрутка поведенческих факторов для SEO — метод внешнего продвижения сайта"
+  title={title}
+  description={description}
+  pageHeading={pageHeading}
+  breadcrumbs={breadcrumbs}
 >
-  <h1>Накрутка поведенческих факторов</h1>
 <p>Накрутка поведенческих факторов (ПФ) — это искусственное увеличение активности пользователей на сайте с целью обмана поисковых систем и повышения позиций в выдаче. Это делается с помощью ботов или специально обученных людей, имитирующих поведение реальных пользователей. Подробнее в <a href="https://journal.topvisor.com/ru/seo-kitchen/how-to-deal-with-cheating-behavioral-factors/" target="_blank" rel="nofollow">блоге Топвизор'а</a>.</p>
 </BaseLayout>

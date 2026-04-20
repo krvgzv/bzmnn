@@ -1,12 +1,24 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const title = "Файл robots.txt для сайта";
+const description = "Управление индексацией страниц сайта через директивы в robots.txt";
+const pageHeading = "Файл robots.txt";
+
+const breadcrumbs = [
+  { href: "/", label: "Главная" },
+  { href: "/seo/", label: "Основы SEO" },
+  { href: "/seo/vnutrennyaya-optimizaciya/", label: "Внутренняя оптимизация" },
+  { label: pageHeading },
+];
 ---
 
 <BaseLayout 
-title="Файл robots.txt для сайта"
-description="Управление индексацией страниц сайта через директивы в robots.txt"
+  title={title}
+  description={description}
+  pageHeading={pageHeading}
+  breadcrumbs={breadcrumbs}
 >
-  <h1>Файл robots.txt</h1>
 <p>Для информирования поисковых систем о запретах и разрешениях индексации, чаще всего используют файл <code>robots.txt</code>, который должен находиться в корневой папке сайта. Пример: https://bzmnn.site/robots.txt</p>
 <p>Если у сайта нет данного файла — его необходимо создать, предварительно изучив структуру сайта и выделив те страницы, которые не должны быть проиндексированы. Как правило это технические разделы или те страницы, которые не представляют интереса для пользователей, но по каким-либо причинам от них нельзя избавиться. </p>
 <p>Файл <code>robots.txt</code> должен содержать минимум один сгруппированный набор правил (директив). Сами группы могут содержать множество правил, но каждое их них должно быть написано с новой строки. </p>

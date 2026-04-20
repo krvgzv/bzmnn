@@ -1,0 +1,76 @@
+---
+interface BreadcrumbItem {
+  href?: string;
+  label: string;
+}
+
+interface Props {
+  items: BreadcrumbItem[];
+}
+
+const { items } = Astro.props;
+---
+
+{
+  items.length > 0 && (
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      {items.map((item, index) => {
+        const isLast = index === items.length - 1;
+
+        return (
+          <>
+            {index > 0 && (
+              <span class="breadcrumbs__separator" aria-hidden="true">›</span>
+            )}
+
+            {isLast || !item.href ? (
+              <span class="breadcrumbs__current" aria-current="page">
+                {item.label}
+              </span>
+            ) : (
+              <a class="breadcrumbs__link" href={item.href}>
+                {item.label}
+              </a>
+            )}
+          </>
+        );
+      })}
+    </nav>
+  )
+}
+
+<style>
+  .breadcrumbs {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px 16px 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    color: #6b7280;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .breadcrumbs__separator {
+    color: #9ca3af;
+    user-select: none;
+  }
+
+  .breadcrumbs__link {
+    color: #4b5563;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .breadcrumbs__link:hover {
+    color: #1d4ed8;
+  }
+
+  .breadcrumbs__current {
+    color: #111827;
+    font-weight: 500;
+  }
+</style>

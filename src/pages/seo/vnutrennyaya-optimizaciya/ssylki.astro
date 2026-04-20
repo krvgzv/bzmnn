@@ -1,12 +1,24 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const title = "Внешние и внутренние ссылки на сайте";
+const description = "Виды гиперссылок и их особенности в SEO";
+const pageHeading = "Ссылки";
+
+const breadcrumbs = [
+  { href: "/", label: "Главная" },
+  { href: "/seo/", label: "Основы SEO" },
+  { href: "/seo/vnutrennyaya-optimizaciya/", label: "Внутренняя оптимизация" },
+  { label: pageHeading },
+];
 ---
 
 <BaseLayout 
-title="Внешние и внутренние ссылки на сайте"
-description="Виды гиперссылок и их особенности в SEO"
+  title={title}
+  description={description}
+  pageHeading={pageHeading}
+  breadcrumbs={breadcrumbs}
 >
-  <h1>Ссылки</h1>
 <p>Гиперссылки являются важным фактором ранжирования в поисковых системах, поэтому им уделяется много внимания и для них существуют правила корректного использования.</p>
 <p>В контексте поисковой оптимизации ссылки можно делить на:</p>
 <ul>

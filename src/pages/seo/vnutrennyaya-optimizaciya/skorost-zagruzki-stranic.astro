@@ -1,12 +1,24 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const title = "Скорость загрузки страниц сайта";
+const description = "Оптимизация скорости загрузки страниц для продвижения сайта в поисковых системах";
+const pageHeading = "Скорость загрузки страниц";
+
+const breadcrumbs = [
+  { href: "/", label: "Главная" },
+  { href: "/seo/", label: "Основы SEO" },
+  { href: "/seo/vnutrennyaya-optimizaciya/", label: "Внутренняя оптимизация" },
+  { label: pageHeading },
+];
 ---
 
 <BaseLayout 
-title="Скорость загрузки страниц сайта"
-description="Оптимизация скорости загрузки страниц для продвижения сайта в поисковых системах"
+  title={title}
+  description={description}
+  pageHeading={pageHeading}
+  breadcrumbs={breadcrumbs}
 >
-  <h1>Скорость загрузки страниц</h1>
 <p>Поисковые системы крайне плохо ранжируют сайты с медленной загрузкой страниц. Сайт может медленно загружаться из-за JS скриптов, "тяжёлых" изображений и плохой оптимизации кода.<br>Для анализа скорости загрузки чаще всего используют сервис <a href="https://pagespeed.web.dev/" target="_blank" rel="nofollow">Google PageSpeed Insights</a></p>
 <p>Для ускорения работы сайта можно применять современные технологии:</p>
 <ul>

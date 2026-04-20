@@ -1,12 +1,24 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const title = "Технический аудит сайтов в SEO";
+const description = "Создание технического аудита для оценки качества оптимизации сайта";
+const pageHeading = "Технический аудит";
+
+const breadcrumbs = [
+  { href: "/", label: "Главная" },
+  { href: "/seo/", label: "Основы SEO" },
+  { href: "/seo/vnutrennyaya-optimizaciya/", label: "Внутренняя оптимизация" },
+  { label: pageHeading },
+];
 ---
 
 <BaseLayout 
-title="Технический аудит сайтов в SEO"
-description="Создание технического аудита для оценки качества оптимизации сайта"
+  title={title}
+  description={description}
+  pageHeading={pageHeading}
+  breadcrumbs={breadcrumbs}
 >
-  <h1>Технический аудит</h1>
 <p>Перед началом аудита необходимо получить доступ к основным системам аналитики:</p>
 <ul>
 <li><a href="https://yandex.ru/support/metrica/ru/" target="_blank" rel="nofollow">Яндекс Метрика</a>;</li>

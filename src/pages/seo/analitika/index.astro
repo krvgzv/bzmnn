@@ -1,12 +1,23 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const title = "Аналитика в SEO: инструменты, метрики и отчеты";
+const description = "WEB-аналитика для SEO-специалистов";
+const pageHeading = "Аналитика";
+
+const breadcrumbs = [
+  { href: "/", label: "Главная" },
+  { href: "/seo/", label: "Основы SEO" },
+  { label: pageHeading },
+];
 ---
 
 <BaseLayout 
-title="Аналитика в SEO"
-  description="WEB-аналитика для SEO-специалистов"
+  title={title}
+  description={description}
+  pageHeading={pageHeading}
+  breadcrumbs={breadcrumbs}
 >
-  <h1>Аналитика</h1>
 <p>Справка <a href="https://developers.google.com/search/docs/essentials?hl=ru" target="_blank" rel="nofollow">Google</a> <br>Справка <a href="https://yandex.ru/support/webmaster/ru/recommendations/intro" target="_blank" rel="nofollow">Яндекс</a> </p>
 <p>Поскольку SEO это инструмент маркетинга, существует множество показателей для оценки его эффективности. Но чаще всего оценивают:</p>
 <ol>

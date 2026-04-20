@@ -1,11 +1,14 @@
 ---
 const {
-  title = 'Безымянный сайт',
-  description = 'Описание сайта',
+  title = "Безымянный сайт",
+  description = "Описание сайта",
   noindex = false,
+  pageHeading,
+  breadcrumbs = [],
 } = Astro.props;
 
 import Header from "../components/Header.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
 const normalizedPath =
   Astro.url.pathname === "/index.html"
     ? "/"
@@ -13,15 +16,24 @@ const normalizedPath =
 
 const canonical = new URL(normalizedPath, Astro.site);
 const GA_ID = 'G-KM4HXM8FLP';
+
+interface BreadcrumbItem {
+  href?: string;
+  label: string;
+}
+
 interface Props {
   title?: string;
   description?: string;
   noindex?: boolean;
+  pageHeading?: string;
+  breadcrumbs?: BreadcrumbItem[];
 }
 
 const siteUrl = 'https://bzmnn.site';
 const pageTitle = title;
 const pageDescription = description;
+const heading = pageHeading ?? "";
 ---
 
 <!doctype html>
@@ -75,8 +87,9 @@ const pageDescription = description;
   </head>
   <body>
     <Header />
-
+    {breadcrumbs.length > 0 && <Breadcrumbs items={breadcrumbs} />}
     <main>
+      {heading && <h1>{heading}</h1>}
       <slot />
     </main>
 
@@ -182,7 +195,20 @@ const pageDescription = description;
     background: #f7f7f7;
     color: #222222;
   }
+  
+  main h1 {
+  margin: 0 0 24px;
+  color: #111827;
+  font-size: 36px;
+  line-height: 1.2;
+  }
 
+  @media (max-width: 768px) {
+  main h1 {
+    font-size: 28px;
+  }
+  }
+  
   main {
     max-width: 900px;
     width: 100%;
