@@ -1,5 +1,9 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import PageDates from "../../../components/PageDates.astro";
+import { getGitDates } from "../../../lib/gitDates";
+
+const { published, modified } = getGitDates("src/pages/seo/vnutrennyaya-optimizaciya/skorost-zagruzki-stranic.astro");
 
 const title = "Скорость загрузки страниц сайта";
 const description = "Оптимизация скорости загрузки страниц для продвижения сайта в поисковых системах";
@@ -19,6 +23,7 @@ const breadcrumbs = [
   pageHeading={pageHeading}
   breadcrumbs={breadcrumbs}
 >
+<PageDates published={published} modified={modified} />
 <p>Поисковые системы крайне плохо ранжируют сайты с медленной загрузкой страниц. Сайт может медленно загружаться из-за JS скриптов, "тяжёлых" изображений и плохой оптимизации кода.<br>Для анализа скорости загрузки чаще всего используют сервис <a href="https://pagespeed.web.dev/" target="_blank" rel="nofollow">Google PageSpeed Insights</a></p>
 <p>Для ускорения работы сайта можно применять современные технологии:</p>
 <ul>

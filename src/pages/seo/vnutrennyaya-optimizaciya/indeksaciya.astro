@@ -1,5 +1,9 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import PageDates from "../../../components/PageDates.astro";
+import { getGitDates } from "../../../lib/gitDates";
+
+const { published, modified } = getGitDates("src/pages/seo/vnutrennyaya-optimizaciya/indeksaciya.astro");
 
 const title = "Индексация сайта в поисковых системах";
 const description = "Методы улучшения индексации сайта в поисковых системах";
@@ -19,6 +23,7 @@ const breadcrumbs = [
   pageHeading={pageHeading}
   breadcrumbs={breadcrumbs}
 >
+<PageDates published={published} modified={modified} />
 <p>Страницы сайта не попадают в выдачу поисковых систем сами по себе. У каждой поисковой системы есть поисковые роботы, они же поисковые боты, они же краулеры. Это программы, которые "гуляют" по сети и собирают информацию о сайтах в базу данных. </p>
 <p>Обычно, вместо термина "база данных" используют слово "<strong>индекс</strong>". Если поисковый робот посетил страницы сайта и счёл их достаточно качественными, то они попадают в индекс поисковой системы. Таким образом, проиндексированные страницы могут отображаться в поисковой выдаче.</p>
 <p>Поисковые системы могут индексировать не только web-страницы, но и файлы разных форматов. Ознакомиться с полным списком форматов можно по ссылкам ниже:<br><a href="https://yandex.ru/support/webmaster/ru/robot-workings/documents-specific-indexing" target="_blank" rel="nofollow">Яндекс</a><br><a href="https://developers.google.com/search/docs/crawling-indexing/indexable-file-types?hl=ru" target="_blank" rel="nofollow">Google</a></p>

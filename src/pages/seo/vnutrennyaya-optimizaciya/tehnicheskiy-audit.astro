@@ -1,5 +1,9 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import PageDates from "../../../components/PageDates.astro";
+import { getGitDates } from "../../../lib/gitDates";
+
+const { published, modified } = getGitDates("src/pages/seo/vnutrennyaya-optimizaciya/tehnicheskiy-audit.astro");
 
 const title = "Технический аудит сайтов в SEO";
 const description = "Создание технического аудита для оценки качества оптимизации сайта";
@@ -19,6 +23,7 @@ const breadcrumbs = [
   pageHeading={pageHeading}
   breadcrumbs={breadcrumbs}
 >
+<PageDates published={published} modified={modified} />
 <p>Перед началом аудита необходимо получить доступ к основным системам аналитики:</p>
 <ul>
 <li><a href="https://yandex.ru/support/metrica/ru/" target="_blank" rel="nofollow">Яндекс Метрика</a>;</li>

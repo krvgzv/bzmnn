@@ -1,0 +1,85 @@
+---
+import { formatDate } from "../lib/formatDate";
+
+interface Props {
+  published?: Date;
+  modified?: Date;
+}
+
+const { published, modified } = Astro.props;
+
+const showModified =
+  published &&
+  modified &&
+  published.toISOString() !== modified.toISOString();
+---
+
+{
+  (published || modified) && (
+    <div class="page-dates" aria-label="Информация о публикации">
+      {
+        published && (
+          <p class="page-dates__item">
+            <span class="page-dates__label">Опубликовано:</span>
+            <time class="page-dates__value" datetime={published.toISOString()}>
+              {formatDate(published)}
+            </time>
+          </p>
+        )
+      }
+
+      {
+        showModified && modified && (
+          <p class="page-dates__item">
+            <span class="page-dates__label">Обновлено:</span>
+            <time class="page-dates__value" datetime={modified.toISOString()}>
+              {formatDate(modified)}
+            </time>
+          </p>
+        )
+      }
+    </div>
+  )
+}
+
+<style>
+  .page-dates {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin: 0.5rem 0 0.5rem;
+    padding: 0.5rem 0.1rem;
+    color: #57606a;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .page-dates__item {
+    margin: 0;
+  }
+
+  .page-dates__label {
+    font-weight: 600;
+    color: #24292f;
+    margin-right: 0.35rem;
+  }
+
+  .page-dates__value {
+    white-space: nowrap;
+  }
+
+  @media (min-width: 768px) {
+    .page-dates {
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0;
+    }
+
+    .page-dates__item + .page-dates__item::before {
+      content: "•";
+      margin: 0 0.75rem;
+      color: #8c959f;
+    }
+  }
+</style>

@@ -1,5 +1,9 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import PageDates from "../../../components/PageDates.astro";
+import { getGitDates } from "../../../lib/gitDates";
+
+const { published, modified } = getGitDates("src/pages/seo/vnutrennyaya-optimizaciya/ssylki.astro");
 
 const title = "Внешние и внутренние ссылки на сайте";
 const description = "Виды гиперссылок и их особенности в SEO";
@@ -19,6 +23,7 @@ const breadcrumbs = [
   pageHeading={pageHeading}
   breadcrumbs={breadcrumbs}
 >
+<PageDates published={published} modified={modified} />
 <p>Гиперссылки являются важным фактором ранжирования в поисковых системах, поэтому им уделяется много внимания и для них существуют правила корректного использования.</p>
 <p>В контексте поисковой оптимизации ссылки можно делить на:</p>
 <ul>

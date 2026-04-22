@@ -1,5 +1,9 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import PageDates from "../../../components/PageDates.astro";
+import { getGitDates } from "../../../lib/gitDates";
+
+const { published, modified } = getGitDates("src/pages/seo/vneshnyaya-optimizaciya/index.astro");
 
 const title = "Внешняя оптимизация сайтов — база знаний SEO";
 const description = "Популярные способы внешней оптимизации сайтов: ссылки, ПФ и SERM";
@@ -18,6 +22,7 @@ const breadcrumbs = [
   pageHeading={pageHeading}
   breadcrumbs={breadcrumbs}
 >
+<PageDates published={published} modified={modified} />
 <p>Или "off-page". Всё что делается вне сайта.</p>
 <p>Внешняя оптимизация начинается с анализа <a href="/seo/vneshnyaya-optimizaciya/ssylochnyy-profil/" title="Ссылочный профиль">ссылочного профиля</a>, в результате которого станет понятно насколько авторитетным считается сайт.</p>
 <p>Для улучшения ссылочного профиля применяют разные методы, но в основном используют <a href="/seo/vneshnyaya-optimizaciya/linkbilding/" title="Линкбилдинг">линкбилдинг</a> — размещение ссылок на продвигаемый сайт на сторонних ресурсах. Большинство методов линкбилдинга находится в "серой" зоне и не запрещается использовать, хотя поисковые системы могут применить санкции к сайту, который получает множество ссылок за короткий промежуток времени. В таких случаях говорят о "ссылочном взрыве".</p>

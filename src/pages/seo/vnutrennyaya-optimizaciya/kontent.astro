@@ -1,5 +1,9 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import PageDates from "../../../components/PageDates.astro";
+import { getGitDates } from "../../../lib/gitDates";
+
+const { published, modified } = getGitDates("src/pages/seo/vnutrennyaya-optimizaciya/kontent.astro");
 
 const title = "Контентное продвижение SEO";
 const description = "Создание и оптимизация контента сайта для продвижения в поисковых системах";
@@ -19,6 +23,7 @@ const breadcrumbs = [
   pageHeading={pageHeading}
   breadcrumbs={breadcrumbs}
 >
+<PageDates published={published} modified={modified} />
 Контент — всё что пользователь видите на странице (кроме интерактивных элементов): текст, изображения, видео.
 <h2>Тексты</h2>
 <p>Все тексты на страницах сайта должны соответствовать требованиям поисковых систем. Если упрощать требования, то качественный текст:</p>

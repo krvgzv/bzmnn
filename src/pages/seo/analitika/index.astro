@@ -1,5 +1,9 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import PageDates from "../../../components/PageDates.astro";
+import { getGitDates } from "../../../lib/gitDates";
+
+const { published, modified } = getGitDates("src/pages/seo/analitika/index.astro");
 
 const title = "Аналитика в SEO: инструменты, метрики и отчеты";
 const description = "WEB-аналитика для SEO-специалистов";
@@ -18,6 +22,7 @@ const breadcrumbs = [
   pageHeading={pageHeading}
   breadcrumbs={breadcrumbs}
 >
+<PageDates published={published} modified={modified} />
 <p>Справка <a href="https://developers.google.com/search/docs/essentials?hl=ru" target="_blank" rel="nofollow">Google</a> <br>Справка <a href="https://yandex.ru/support/webmaster/ru/recommendations/intro" target="_blank" rel="nofollow">Яндекс</a> </p>
 <p>Поскольку SEO это инструмент маркетинга, существует множество показателей для оценки его эффективности. Но чаще всего оценивают:</p>
 <ol>

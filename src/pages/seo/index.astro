@@ -1,5 +1,9 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageDates from "../../components/PageDates.astro";
+import { getGitDates } from "../../lib/gitDates";
+
+const { published, modified } = getGitDates("src/pages/seo/index.astro");
 
 
 const title = "Основы SEO";
@@ -18,6 +22,7 @@ const breadcrumbs = [
   pageHeading={pageHeading}
   breadcrumbs={breadcrumbs}
 >
+<PageDates published={published} modified={modified} />
 <p>Справка <a href="https://developers.google.com/search/docs/essentials?hl=ru" target="_blank" rel="nofollow">Google </a><br>Справка <a href="https://yandex.ru/support/webmaster/ru/recommendations/intro" target="_blank" rel="nofollow">Яндекс</a> </p>
 <p>Сайты в выдаче поисковых систем <strong>ранжируются</strong> (сортируются) по <strong>релевантности</strong> (соответствию) поисковым запросам пользователей.</p>
 <p>Поисковая оптимизация сайтов (<strong>S</strong>earch <strong>E</strong>ngine <strong>O</strong>ptimization) — это любые действия, направленные на повышение позиций сайтов в поисковой выдаче по поисковым запросам. Иногда используется словосочетание "продвижение сайтов", но это скорее маркетинговый термин.</p>

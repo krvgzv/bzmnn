@@ -1,5 +1,9 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import PageDates from "../../../components/PageDates.astro";
+import { getGitDates } from "../../../lib/gitDates";
+
+const { published, modified } = getGitDates("src/pages/seo/vnutrennyaya-optimizaciya/index.astro");
 
 const title = "Внутренняя оптимизация сайтов";
 const description = "Методы внутренней оптимизации сайтов для поисковых систем";
@@ -18,7 +22,8 @@ const breadcrumbs = [
   pageHeading={pageHeading}
   breadcrumbs={breadcrumbs}
 >
-<p>Или "on-page". То, что делается на сайте.</p>
+<PageDates published={published} modified={modified} />
+<p>Или "on-page". Всё, что оптимизаруют на сайте.</p>
 <p>В идеальной ситуации SEO-специалист приступает к работе ещё на этапе проектирования сайта. Но чаще всего приходится иметь дело с уже существующим проектом, где образовался некий набор проблем и ошибок.<br>Кратко пройдёмся по этапам для идеального случая, а позже подробно рассмотрим классический сценарий.</p>
 <h2>Этапы работ с нуля</h2>
 <ol>

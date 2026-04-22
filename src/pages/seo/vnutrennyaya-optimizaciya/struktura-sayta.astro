@@ -1,5 +1,9 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import PageDates from "../../../components/PageDates.astro";
+import { getGitDates } from "../../../lib/gitDates";
+
+const { published, modified } = getGitDates("src/pages/seo/vnutrennyaya-optimizaciya/struktura-sayta.astro");
 
 const title = "Структура сайта";
 const description = "Оптимизация структуры страниц сайта для поисковых систем";
@@ -19,6 +23,7 @@ const breadcrumbs = [
   pageHeading={pageHeading}
   breadcrumbs={breadcrumbs}
 >
+<PageDates published={published} modified={modified} />
 <p>Если на проекте нет документации о структуре страниц сайта (или вы делаете анализ сайта конкурента), то самым простым способом узнать структуру сайта — парсинг. Это автоматический процесс, который экономит время, тогда как ручная проверка структуры крайне трудозатратна. При проверке структуры парсят внутренние ссылки и <a href="/seo/vnutrennyaya-optimizaciya/kody-otveta/" title="Коды ответа">коды ответов</a> этих адресов.</p>
 <p>Дополнительным инструментом для анализа структуры может быть файл <a href="/seo/vnutrennyaya-optimizaciya/karta-sayta/" title="Карта сайта">sitemap.xml</a> являющийся картой сайта.</p>
 <p>В результате парсинга сайта специалист получает список адресов, которые можно структурировать и отрисовать структуру в виде схемы. <a href="https://www.screamingfrog.co.uk/seo-spider/" target="_blank" rel="nofollow">Screaming Frog SEO Spider</a> имеет встроенные инструменты для построения графов.</p>

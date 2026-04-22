@@ -1,5 +1,9 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import PageDates from "../../../components/PageDates.astro";
+import { getGitDates } from "../../../lib/gitDates";
+
+const { published, modified } = getGitDates("src/pages/seo/vnutrennyaya-optimizaciya/mikrorazmetka.astro");
 
 const title = "Микроразметка данных сайта";
 const description = "Разметка структурированных данных сайта для поисковых систем";
@@ -19,6 +23,7 @@ const breadcrumbs = [
   pageHeading={pageHeading}
   breadcrumbs={breadcrumbs}
 >
+<PageDates published={published} modified={modified} />
 <p>Разметка структурированных данных или микроразметка  — это способ добавления в код веб-страницы дополнительной информации, которая помогает поисковым системам и другим сервисам лучше понимать содержание страницы. Она использует специальные теги и атрибуты, невидимые для обычных пользователей, но понятные поисковым роботам, чтобы более точно индексировать и представлять контент в результатах поиска. Проверить наличие и корректность микроразметки можно через сервисы:<br><a href="https://developers.google.com/search/docs/appearance/structured-data?hl=ru" target="_blank" rel="nofollow">Google</a><br><a href="https://webmaster.yandex.ru/tools/microtest/" target="_blank" rel="nofollow">Яндекс</a></p>
 <p>У Google есть специальный <a href="https://www.google.com/webmasters/markup-helper/" target="_blank" rel="nofollow">инструмент настройки микроразметки</a>.</p>
 <p>Подробнее о микроразметке можно прочесть в справке:<br><a href="https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data?hl=ru" target="_blank" rel="nofollow">Google</a><br><a href="https://yandex.ru/support/webmaster/ru/schema-org/what-is-schema-org.html" target="_blank" rel="nofollow">Яндекс</a></p>

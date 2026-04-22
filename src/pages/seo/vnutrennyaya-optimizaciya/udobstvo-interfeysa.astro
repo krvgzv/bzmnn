@@ -1,5 +1,9 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import PageDates from "../../../components/PageDates.astro";
+import { getGitDates } from "../../../lib/gitDates";
+
+const { published, modified } = getGitDates("src/pages/seo/vnutrennyaya-optimizaciya/udobstvo-interfeysa.astro");
 
 const title = "Удобство интерфейса сайта UX/UI";
 const description = "Улучшение юзабилити сайта, оптимизация UX и UI";
@@ -19,6 +23,7 @@ const breadcrumbs = [
   pageHeading={pageHeading}
   breadcrumbs={breadcrumbs}
 >
+<PageDates published={published} modified={modified} />
 <p>Сайт необходимо проверить на <strong>удобство использования</strong> с точки зрения рядового посетителя: понятность интерфейсов, "читабельность" текстов и лёгкость навигации. Даже <a href="/seo/vnutrennyaya-optimizaciya/skorost-zagruzki-stranic/" title="Скорость загрузки страниц">скорость загрузки страниц</a> является важным фактором удобства. </p>
 <p>Анализ usability редко выполняется самим SEO-специалистом, обычно для этой проверки привлекают UX и UI-дизайнеров. </p>
 <p>Подробнее об удобстве использования сайтов можно прочесть в справке <a href="https://developers.google.com/search/docs/appearance/page-experience?hl=ru" target="_blank" rel="nofollow">Google</a> и <a href="https://practicum.yandex.ru/blog/chto-takoe-usability-sayta/"  target="_blank" rel="nofollow">в блоге Яндекс'а</a>.</p>

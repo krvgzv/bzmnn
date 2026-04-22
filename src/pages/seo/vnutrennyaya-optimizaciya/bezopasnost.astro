@@ -1,9 +1,13 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import PageDates from "../../../components/PageDates.astro";
+import { getGitDates } from "../../../lib/gitDates";
 
-const title = "Протоколы безопасности сайта";
+const { published, modified } = getGitDates("src/pages/seo/vnutrennyaya-optimizaciya/bezopasnost.astro");
+
+const title = "Безопасность сайта";
 const description = "Протокол HTTPS и сертификаты безопасности SSL в SEO";
-const pageHeading = "Протоколы безопасности";
+const pageHeading = "Безопасность сайта";
 
 const breadcrumbs = [
   { href: "/", label: "Главная" },
@@ -19,6 +23,7 @@ const breadcrumbs = [
   pageHeading={pageHeading}
   breadcrumbs={breadcrumbs}
 >
+<PageDates published={published} modified={modified} />
 <p>HTTPS и SSL/TLS — это взаимосвязанные понятия, обеспечивающие безопасную передачу данных в интернете. Поисковые системы негативно относятся к сайтам, которые не поддерживают протокол безопасной передачи данных HTTPS и технологию шифрования TLS/SSL. Поэтому необходимо убедиться, что тестируемый сайт их поддерживает. Для этого достаточно посмотреть на URL адреса страниц. Если они поддерживают шифрование, то будут начинаться с <code>https://</code><br>Ссылки начинающиеся с <code>http://</code> необходимо исправить или удалить.</p>
 <p>Подробнее про шифрование можно прочитать <a href="https://help.reg.ru/support/ssl-sertifikaty/obshchaya-informatsiya-po-ssl/chto-takoye-secure-sockets-layer" target="_blank" rel="nofollow">в этой статье</a>.</p>
 </BaseLayout>
