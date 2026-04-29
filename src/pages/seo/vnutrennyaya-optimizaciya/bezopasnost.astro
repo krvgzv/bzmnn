@@ -24,6 +24,115 @@ const breadcrumbs = [
   breadcrumbs={breadcrumbs}
 >
 <PageDates published={published} modified={modified} />
-<p>HTTPS и SSL/TLS — это взаимосвязанные понятия, обеспечивающие безопасную передачу данных в интернете. Поисковые системы негативно относятся к сайтам, которые не поддерживают протокол безопасной передачи данных HTTPS и технологию шифрования TLS/SSL. Поэтому необходимо убедиться, что тестируемый сайт их поддерживает. Для этого достаточно посмотреть на URL адреса страниц. Если они поддерживают шифрование, то будут начинаться с <code>https://</code><br>Ссылки начинающиеся с <code>http://</code> необходимо исправить или удалить.</p>
-<p>Подробнее про шифрование можно прочитать <a href="https://developers.google.com/search/blog/2014/08/https-as-ranking-signal?hl=ru" target="_blank" rel="nofollow">в этой статье</a>.</p>
+<p>Безопасность сайта — это не только защита от взлома, но и один из базовых факторов доверия. Поисковые системы используют автоматические сканеры для обнаружения проблем с безопасностью у сайтов, а Яндекс даже позволяет отправлять <a href="https://yandex.ru/support/search/ru/troubleshooting/delspam" target="_blank" rel="nofollow">жалобы на такие сайты</a>.</p>
+<p>При выявлении проблемы, поисковики могут помечать ваш сайт для пользователей как небезопасный.</p>
+<p>Google покажет пользователям поиска <a href="https://support.google.com/webmasters/answer/6347750" target="_blank" rel="nofollow">пометку об этом</a> и Яндекс <a href="https://yandex.ru/support/search/ru/beware/harmful-sites" target="_blank" rel="nofollow">тоже</a>.</p>
+<p>Если вы добавили сайт в Google Search Console то вы получите уведомление на почту и сможете посмотреть <a href="https://support.google.com/webmasters/answer/9044101" target="_blank" rel="nofollow">отчёт о проблемах с безопасностью</a>.</p>
+<p>Яндекс тоже <a href="https://webmaster.yandex.ru/blog/12605" target="_blank" rel="nofollow">уведомляет</a> о проблемах через почту, если вы добавили сайт в Вебмастер. Отчёт о проблемах в Вебмастере находится на странице "Безопасность и нарушения".</p>
+<p>Последствия проблем с безопасностью:</p>
+<ul>
+<li>падение позиций в поиске;</li>
+<li>снижение CTR из-за пометки "сайт может быть опасен";</li>
+<li>возможное исключение из индекса.</li>
+</ul>
+<h2>Взлом и вредоносное ПО</h2>
+<p>Если не уделять достаточно внимания безопасности, злоумышленники смогут получить доступ к вашему сайту и внедрить вредоносное ПО или провернуть мошенническую схему.</p>
+<p>Что такое вредоносное ПО и <a href="https://developers.google.com/search/docs/monitor-debug/security/malware" target="_blank" rel="nofollow">правила Google</a> и как от него <a href="https://developers.google.com/search/docs/monitor-debug/security/prevent-malware?hl=ru" target="_blank" rel="nofollow">защититься</a>.</p>
+<p>В справке Яндекса тоже есть <a href="https://yandex.ru/support/webmaster/ru/threat/undesirable" target="_blank" rel="nofollow">пункт о ПО</a> и он боролся с <a href="https://webmaster.yandex.ru/blog/13266" target="_blank" rel="nofollow">дорвеями</a>.</p>
+<p>Дабы избежать противоправных действий со стороны злоумышленников ,необходимо соблюдать базовые меры безопасности:</p>
+<ul>
+<li>регулярные обновления CMS и плагинов;</li>
+<li>использование сложных паролей и двухфакторной аутентификации;</li>
+<li>ограничение доступа к административной панели;</li>
+<li>использование резервных копий;</li>
+<li>настройка прав доступа;</li>
+<li>регулярная проверка сайта на уязвимости.</li>
+</ul>
+<h2>Мошеннические действия</h2>
+<p>Поисковые системы старательно борются с мошенниками, использующими методы социальной инженерии, вот <a href="https://developers.google.com/search/docs/monitor-debug/security/social-engineering" target="_blank" rel="nofollow">статья от Google</a>, а вот <a href="https://yandex.ru/support/webmaster/ru/threat/social-engineering" target="_blank" rel="nofollow">статья от Яндекса</a>.</p>
+<p>Грубо говоря, социальная инженерия это различные способы кражи персональных данных путём обмана пользователей. Чаще всего подразумевают <a href="https://yandex.ru/support/common/ru/security/phishing.html" target="_blank" rel="nofollow">фишинг</a> или <a href="https://webmaster.yandex.ru/blog/yandeks-usilivaet-zaschitu-polzovateley-ot-kriptodzhekinga" target="_blank" rel="nofollow">криптоджекинг</a>.</p>
+<h2>Шифрование</h2>
+<p>Поисковые системы негативно относятся к сайтам, которые не поддерживают протокол безопасной передачи данных HTTPS и технологии шифрования TLS/SSL. Шифрование стало фактором ранжирования Google ещё <a href="https://developers.google.com/search/blog/2014/08/https-as-ranking-signal" target="_blank" rel="nofollow">в 2014 году</a>. Яндекс чуть <a href="https://webmaster.yandex.ru/blog/https-kak-znak-kachestva-sayta" target="_blank" rel="nofollow">позже</a>.</p>
+<h3>Типы TLS/SSL сертификатов</h3>
+<p>На базовом уровне все они делают одно и то же — включают HTTPS и шифруют соединение.</p>
+<table>
+<thead>
+<tr>
+<th>Тип сертификата</th>
+<th>Проверка</th>
+<th>Для кого подходит</th>
+<th>Доверие поисковиков</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DV (Domain Validation)</td>
+<td>Только владение доменом</td>
+<td>Блоги, небольшие сайты</td>
+<td>Базовое</td>
+</tr>
+<tr>
+<td>OV (Organization Validation)</td>
+<td>Документы компании</td>
+<td>Интернет-магазины, корпоративные сайты</td>
+<td>Высокое</td>
+</tr>
+<tr>
+<td>EV (Extended Validation)</td>
+<td>Глубокая проверка юрлица</td>
+<td>Банки, крупные финансовые системы</td>
+<td>Максимальное</td>
+</tr>
+</tbody>
+</table>
+<p>Для поисковых систем нет разницы между типами сертификатов, главное его наличие. Для большинства сайтов достаточно бесплатного DV, а OV/EV нужны только для финансовых проектов, где важна видимая проверка организации в адресной строке браузера.</p>
+<h3>Переход на HTTPS</h3>
+<p>Инструкция о переходе на https от <a href="https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes" target="_blank" rel="nofollow">Google</a> и аналогичная инструкция от <a href="https://yandex.ru/support/webmaster/ru/yandex-indexing/https-migration" target="_blank" rel="nofollow">Яндекс</a>.</p>
+<p>После перехода можно посмотреть отчёт об использовании https в <a href="https://support.google.com/webmasters/answer/11396518" target="_blank" rel="nofollow">Search Console</a>.</p>
+<p>Яндекс Вебмастер <a href="https://webmaster.yandex.ru/blog/yandeks-soobschit-o-nekorrektnom-sertifikate-bezopasnosti-sayta" target="_blank" rel="nofollow">уведомит вас</a> если сертификат просрочен или некорректен. Там же можно проверить сертификат, <a href="https://yandex.ru/support/webmaster/ru/service/certification" target="_blank" rel="nofollow">выданный НУЦ</a>.</p>
+<p>Типичные ошибки настройки SSL описаны в справке <a href="https://support.google.com/webmasters/answer/180386" target="_blank" rel="nofollow">Google </a> и в справке <a href="https://yandex.ru/support/webmaster/ru/diagnosis/mistakes#ssl" target="_blank" rel="nofollow">Яндекс</a>.</p>
+<p>После перехода к HTTPS стоит удостовериться, что на вашем сайте не возникло проблемы "<a href="https://web.dev/articles/fixing-mixed-content" target="_blank" rel="nofollow">смешанного контента</a>".</p>
+<h2>Заголовки безопасности</h2>
+<p>HTTP Security Headers это механизмы защиты, которые позволяют серверу передавать браузеру инструкции о том, как следует обрабатывать контент, какие ресурсы разрешено загружать и какие функции безопасности должны быть активированы. Проверить настройку заголовков можно <a href="https://securityheaders.com/" target="_blank" rel="nofollow">тут</a>.</p>
+<h3>HTTP Strict-Transport-Security (HSTS)</h3>
+<p>Если сайт сначала доступен по HTTP и лишь затем перенаправляет на HTTPS, пользователь может на короткое время соединяться по незащищённому каналу. Это создаёт риск атак посредника и подмены на вредоносный сайт.</p>
+<p>Поэтому, следующим шагом после перехода к HTTPS является использование HSTS (HTTP Strict-Transport-Security), который указывает браузеру всегда использовать только HTTPS и автоматически заменять любые HTTP-запросы на защищённые. Подробнее в <a href="https://developer.mozilla.org/ru/docs/Web/HTTP/Reference/Headers/Strict-Transport-Security" target="_blank" rel="nofollow">MDN</a>.</p>
+<h3>Content-Security-Policy (CSP)</h3>
+<p>Ограничивает список источников, из которых браузеру разрешено загружать скрипты, стили, изображения и другие ресурсы. Используется для защиты от межсайтового скриптинга и практически полностью блокирует возможность проведения XSS-атак. Подробнее в <a href="https://developer.mozilla.org/ru/docs/Web/HTTP/Guides/CSP" target="_blank" rel="nofollow">MDN</a>.</p>
+<h3>X-Frame-Options</h3>
+<p>Определяет, разрешено ли отображать ваш сайт во фреймах (<code>&lt;iframe&gt;</code>, <code>&lt;frame&gt;</code>, <code>&lt;object&gt;</code>). Используется для защиты от кликджекинга. Подробнее в <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/X-Frame-Options" target="_blank" rel="nofollow">MDN</a>.</p>
+<h3>X-Content-Type-Options</h3>
+<p>Отключает "MIME-sniffing", чем запрещает браузеру "угадывать" тип файла. Подробнее в <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/X-Content-Type-Options" target="_blank" rel="nofollow">MDN</a>.</p>
+<h3>Referrer-Policy</h3>
+<p>Контролирует, какие данные о том, откуда пришел пользователь (заголовок <code>Referer</code>) передаются другим сайтам при переходе пользователя по ссылкам. Подробнее в <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Referrer-Policy" target="_blank" rel="nofollow">MDN</a>.</p>
+<h3>Permissions-Policy (ex. Feature-Policy)</h3>
+<p>Ограничивает доступ к возможностям браузера. Позволяет сайту явно разрешить или запретить использование определенных функций браузера (камера, микрофон, геолокация, USB). Подробнее в <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Permissions_Policy" target="_blank" rel="nofollow">MDN</a>.</p>
+<h2>Юридические моменты</h2>
+<p>Законы вроде GDPR (Европа) или ФЗ-152 (Россия) обязывают владельцев сайтов иметь Privacy Policy и Cookie Consent если сайт собирает личные данные пользователей. Поисковые системы учитывают наличие этих документов как фактор доверия (E-E-A-T).</p>
+<h3>Политика конфиденциальности (Privacy Policy)</h3>
+<p>Это публичный документ, который объясняет, как именно сайт собирает, использует, хранит и защищает их персональные данные.</p>
+<p>Документ должен быть написан простым языком, доступным для понимания человеком без юридического образования и содержать:</p>
+<ul>
+<li>контактные данные (вашего юрлица)</li>
+<li>основание для сбора данных</li>
+<li>перечисление собираемых данных</li>
+<li>цель их сбора</li>
+<li>срок и метод хранения</li>
+<li>возможность передачи третьим лицам</li>
+<li>права пользователя</li>
+</ul>
+<h4>Когда наличие политики конфиденциальности обязательно</h4>
+<p>Практически всегда, если у вас есть:</p>
+<ul>
+<li>формы (регистрация, обратная связь)</li>
+<li>аналитика</li>
+<li>личный кабинет</li>
+<li>cookies</li>
+</ul>
+<h3>Согласие на использование файлов cookie (Cookie Consent)</h3>
+<p>Это механизм получения согласия пользователя на использование специальных файлов "cookies", в которых хранятся его данные. Они бывают разных видов: строго необходимые, функциональные, аналитические и маркетинговые. Только первый тип cookies можно собирать без активного согласия пользователя, но его всё же требуется уведомить о сборе.</p>
+<p>Сбор данных запрещён, пока пользователь не дал на это согласие. Единственно верный способ получения получения согласия это всплывающее окно. Запрещено применять в его работе манипулятивные механики. Пользователь должен иметь возможность легко отозвать свое согласие в любой момент. Процесс отзыва должен быть таким же простым, как и процесс предоставления согласия.</p>
+<h2>CDN (Content Delivery Network) и WAF (Web Application Firewall)</h2>
+<p>CDN (Content Delivery Network) — это распределённая сеть серверов, которая не только ускоряет загрузку сайта, но и повышает его безопасность. За счёт проксирования трафика через CDN (например, Cloudflare или Akamai Technologies) скрывается реальный IP сервера, снижается риск прямых атак и обеспечивается базовая защита от DDoS и ботов. Многие CDN также берут на себя управление HTTPS и фильтрацию подозрительных запросов.</p>
+<p>WAF (Web Application Firewall) дополняет CDN, анализируя HTTP-запросы и блокируя атаки на уровне приложения — такие как SQL-инъекции, XSS и попытки брутфорса. В связке CDN + WAF сайт получает базовый уровень защиты ещё до обработки запросов сервером, однако эти инструменты не заменяют безопасную разработку и регулярное обновление системы.</p>
 </BaseLayout>
